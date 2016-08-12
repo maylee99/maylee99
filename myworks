@@ -1,0 +1,13 @@
+AWS setup
+Public IP
+52.193.122.196
+
+ssh ubuntu@52.193.122.196 -i ec2key.pem
+
+1.https://dribbble.com/(UI works)
+2.https://www.behance.net/
+3.Github:http://maylee99.github.io/(works cover)
+4.
+https://www.behance.net/athena_lee
+https://www.behance.net/gallery/38169031/Web-UI-Design
+https://www.behance.net/gallery/38161119/UI-UX-design-for-mobile-app
