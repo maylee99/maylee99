@@ -1951,10 +1951,11 @@
 		}
 
 		.image.fit {
-			display: block;
-			width: 100%;
+		    display: block;
+		    width: 100%;
+		    max-height: 300px;
+		    overflow: hidden;		}
 		}
-
 		.image.left {
 			float: left;
 			margin: 0 2em 2em 0;
