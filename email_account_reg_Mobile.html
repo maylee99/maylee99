@@ -27,7 +27,7 @@ body{
 }
 
 #app{
-  margin: 0 auto;
+	margin: 0 auto;
   text-align: center;
   max-width: 320px;
   width: 100%;
@@ -49,10 +49,11 @@ body{
   font-size: 18px;
   width: auto;
   display: inline-block;
+  padding: 0 18px 0 6px;
   border: 0 none;
   border-radius: 5px;
   text-decoration: none;
-  transition: all 250ms linear;
+  transition: left 250ms linear;
   height: 46px;
   margin: 20px 0;
 }
@@ -85,7 +86,6 @@ body{
 .button--social-login .icon:before {
   display: inline-block;
   width: 40px;
-  padding-left: 20px;
 }
 .button--social-login .icon:after {
   content: "";
@@ -109,8 +109,8 @@ body{
   border: 1px solid #dddddd;
 }
 .button--google .icon {
-  padding-right: 30px;
-  left: 26px;
+  padding-right: 12px;
+  left: 9px;
   top: 8px;
 }
 
@@ -138,7 +138,6 @@ body{
 }
 .button--line .icon {
   padding-right: 2px;
-  padding-left: 20px;
 }
 
 .button--line:hover {
@@ -187,6 +186,70 @@ signup a:hover{
 	padding-top: 22px;
 }
 
+/*输入框样式，去掉背景阴影模仿原生应用的输入框*/
+input{
+color: #6e6e6e;
+height: 50px;  
+border:transparent;
+padding-left:3px;  
+font-size: 14px;  
+width: 100%;
+padding: 0;
+background-color: transparent;
+box-shadow: none;
+}
+
+input:focus{
+  outline: none;
+  color: #6e6e6e;
+}
+
+/*显示\隐藏密码图片*/
+.input_block > img {
+width: 18px;
+position: absolute;  
+right: 0px; 
+margin: 20px 15px;  
+}
+/*登录按钮*/
+button{  
+    width: 100%;  
+    height: 50px;  
+    margin-top: 40px;
+    border:none;
+    font-size: 18px;
+    font-weight: 700;  
+    color: #fff;
+    background: #ff7500;
+    outline: none;
+    cursor: pointer;
+}
+button:hover {
+background: rgba(255, 117, 0, 0.8); 
+outline: 0;
+transition: background-color 0.2s ease-in-out;
+}
+/*输入框底部半透明横线*/
+.input_block {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  border-bottom-width: none;
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 2px solid #25acb3;
+    color: #6e6e6e;
+    box-shadow: none;
+    left: 50%;
+     -webkit-transition: left 0.28s ease, width 0.28s ease;
+    transition: left 0.28s ease, width 0.28s ease;
+    z-index: 2;
+}
+
+
 
 /* element UI dialog css */
 
@@ -223,40 +286,62 @@ signup a:hover{
 </style>
 </head>
 <body>
+
   <div class="loginbox" id="app" >
-  <h1>請選擇以下方法註冊或登入</h1>
+
+<el-form :model="form">
+    <el-form-item label="電郵" :label-width="formLabelWidth">
+      <el-input v-model="form.name" auto-complete="off"></el-input>
+    </el-form-item>
+    <el-form-item label="密碼" :label-width="formLabelWidth">
+      <el-input v-model="form.name" auto-complete="off"></el-input>
+    </el-form-item>
+  </el-form>
+  <!--密码输入框-->
+
+<el-row>
+    <el-col: 4,offset: 4>
+    <div class="input_block">
+    <input type="text" placeholder="電郵"/>
+  </div>
+  </el-col:>
+  </el-row>
   <el-row>
-  <el-col :span: 4, offset: 4><a class="button button--social-login button--google" href="#">
-  <img src="images/google_g_logo.svg" class="icon"  alt="Google G">透過 Google 登入</a>
-  </el-col>
+    <el-col: 4,offset: 4>
+    <div class="input_block">
+    <img id="demo_img" onclick="hideShowPsw()" src="images/visible.png">
+    <input type="Password" id="demo_input" placeholder="密碼"/>
+  </div>
+  </el-col:>
   </el-row>
 
   <el-row>
-  <el-col :span: 4, offset: 4><a class="button button--social-login button--facebook" href="#"><i class="icon fa fa-facebook"></i>透過 Facebook 登入</a>
-  </el-col>
-  </el-row>
-
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="button button--social-login button--wechat" href="#"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a>
-  </el-col>
-  </el-row>
-
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="button button--social-login button--line" href="#"><img src="images/icon_line.png" class="icon" >透過 Line 登入</a>
-  </el-col>
-  </el-row>
-
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="button button--social-login button--email" href="#"><i class="icon fa fa-envelope"></i>透過 Email 登入</a>
+  <el-col :span: 4, offset: 4>
+    <button onclick="">登入</button>
   </el-col>
   </el-row>
 
   <el-row>
   <el-col :span: 4, offset: 4>
-  <div class="signup">未有帳戶？<a href="#">按此註冊</a></div>
+  <div class="signup">忘記密碼？<a href="#">重設密碼</a></div>
   </el-col>
   </el-row>
 
   </div>
+<script type="text/javascript">
+  // password show/hidden
+  var demoImg = document.getElementById("demo_img");
+  var demoInput = document.getElementById("demo_input");
+    //show/hidden pwd
+  function hideShowPsw(){
+    if (demoInput.type == "password") {
+      demoInput.type = "text";
+      demo_img.src = "images/invisible.png";
+    }else {
+      demoInput.type = "password";
+      demo_img.src = "images/visible.png";
+    }
+  }
+</script>
 </body>
 </html>
