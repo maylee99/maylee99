@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ELEMENT UI - Message-Box</ELEMENT></title>
+<!-- 引入ELEMENT UI样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+<!-- 引入ELEMENT UI组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+ <!-- awesome font icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style type="text/css" media="screen">
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+
+/* Page css */
+
+#app{
+	margin: 0 auto;
+
+}
+
+body {
+  text-align: center;
+  width: 100%;
+ /* font-family: 'Roboto Slab', serif;*/
+}
+
+.button {
+  font-size: 18px;
+  width: auto;
+  display: inline-block;
+  padding: 0 18px 0 6px;
+  border: 0 none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 250ms linear;
+  width: 280px;
+  height: 46px;
+}
+.button:hover {
+  text-decoration: none;
+}
+
+.button--social-login {
+  margin-right: 12px;
+  color: white;
+  height: 44px;
+  line-height: 44px;
+  position: relative;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+
+}
+.button--social-login .icon {
+  margin-right: 12px;
+  font-size: 30px;
+  height: 30px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  top: 4px;
+}
+.button--social-login .icon:before {
+  display: inline-block;
+  width: 40px;
+}
+.button--social-login .icon:after {
+  content: "";
+}
+
+.button--facebook {
+  background-color: #4b70ab;
+  border: 1px solid #3b5988;
+}
+.button--facebook .icon {
+  padding-right: 2px;
+}
+
+.button--facebook:hover {
+  background-color: #436499;
+}
+
+.button--google {
+  color: #949494;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+.button--google .icon {
+    padding-right: 12px;
+    left: 9px;
+    top: 8px;
+
+}
+
+.button--google:hover {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+
+}
+
+
+.button--wechat {
+  background-color: #1AAD19;
+  border: 1px solid #2BA245;
+}
+.button--wechat .icon {
+  padding-right: 2px;
+}
+
+.button--wechat:hover {
+  background-color: #2BA245;
+}
+
+.button--line {
+  background-color: #00c300;
+  border: 1px solid #2BA245;
+}
+.button--line .icon {
+  padding-right: 2px;
+}
+
+.button--line:hover {
+  background-color: #00e000;
+}
+
+
+.button--email {
+  color: #949494;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+}
+.button--email .icon {
+  padding-right: 2px;
+}
+
+.button--email:hover {
+  background-color: #f2f2f2;
+  border: 1px solid #dddddd;
+
+}
+.login{
+	color: #6e6e6e;
+}
+
+.login{
+	color:#6e6e6e;
+}
+
+.signup{
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.signup a,.signup a:hover{
+	text-decoration: none;
+}
+
+signup a:hover{
+	color:#55d2d8;
+}
+
+.signup a{
+	color:#25acb3;
+}
+
+.login h1{
+	font-size: 18px;
+	font-weight: 700;
+	padding-top: 22px;
+}
+
+
+/* element UI dialog css */
+
+.el-dialog{
+	min-width: 530px;
+	width: 50%
+}
+
+
+.el-dialog__header {
+	background-color: #25acb3;
+	padding: 15px;
+}
+.el-dialog__title{
+	color: #FFFFFF;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 28px;
+
+}
+.el-icon-close{
+	font-size: 28px;
+	font-weight: 700;
+    line-height: 20px;
+
+}
+.el-dialog__headerbtn .el-dialog__close{
+	color: #FFFFFF;
+}
+.el-dialog__headerbtn .el-dialog__close:hover{
+	color: #FFFFFF;
+}
+
+</style>
+</head>
+<body>
+  <el-row center class="login">
+    		<h1>請選擇以下方法註冊或登入</h1>
+			<el-col :span="24" center><a class="button button--social-login button--google" href="#">
+			<img src="https://madeby.google.com/static/images/google_g_logo.svg" class="icon"  alt="Google G">透過 Google 登入</a>
+    </el-col>
+
+      <el-row :gutter="20">
+			<el-col :span="24" center><a class="button button--social-login button--facebook" href="#"><i class="icon fa fa-facebook"></i>透過 Facebook 登入</a>
+      </el-col>
+      </el-row>
+
+			<el-row :gutter="20">
+        <el-col :span="24" center><a class="button button--social-login button--wechat" href="#"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a>
+      </el-col>
+      </el-row>
+
+			<el-row :gutter="20">
+        <el-col :span="24" center><a class="button button--social-login button--line" href="#"><img src="images/icon_line.png" class="icon" >透過 Line 登入</a></el-col>
+			<el-col :span="24"  center><a class="button button--social-login button--email" href="#"><i class="icon fa fa-envelope"></i>透過 Email 登入</a>
+      </el-col>
+      <el-row>
+<el-row :gutter="20">
+  <el-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+
+
+      <el-row :gutter="20">
+			<el-col :span="24" center class="signup">未有帳戶？<a href="#">按此註冊</a>
+      </el-col>
+    </el-row>
+
+		</div>
+  </div>
+</body>
+</html>
