@@ -21,14 +21,20 @@
 
 #app{
 	margin: 0 auto;
-
-}
-
-body {
   text-align: center;
-  width: 100%;
- /* font-family: 'Roboto Slab', serif;*/
+
 }
+
+.el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .login-box {
+    margin-top:20%;
+    margin-left:40%;
+  }
 
 .button {
   font-size: 18px;
@@ -39,8 +45,8 @@ body {
   border-radius: 5px;
   text-decoration: none;
   transition: all 250ms linear;
-  width: 280px;
   height: 46px;
+  margin: 20px 0;
 }
 .button:hover {
   text-decoration: none;
@@ -54,9 +60,12 @@ body {
   position: relative;
   text-align: left;
   font-weight: 400;
-  margin: 6px;
+  display: block;
+  width: 280px;
+  margin: 20px auto;
 
 }
+
 .button--social-login .icon {
   margin-right: 12px;
   font-size: 30px;
@@ -211,38 +220,38 @@ signup a:hover{
 </style>
 </head>
 <body>
-  <el-row center class="login">
+  <div class="login-box" id="app" >
+  <div class="login">
     		<h1>請選擇以下方法註冊或登入</h1>
-			<el-col :span="24" center><a class="button button--social-login button--google" href="#">
+			<el-row>
+  <el-col :span: 4, offset: 4><a class="button button--social-login button--google" href="#">
 			<img src="https://madeby.google.com/static/images/google_g_logo.svg" class="icon"  alt="Google G">透過 Google 登入</a>
-    </el-col>
+   </el-col>
+ </el-row>
 
-      <el-row :gutter="20">
-			<el-col :span="24" center><a class="button button--social-login button--facebook" href="#"><i class="icon fa fa-facebook"></i>透過 Facebook 登入</a>
+<el-row>
+   <el-col :span: 4, offset: 4><a class="button button--social-login button--facebook" href="#"><i class="icon fa fa-facebook"></i>透過 Facebook 登入</a>
       </el-col>
       </el-row>
 
-			<el-row :gutter="20">
-        <el-col :span="24" center><a class="button button--social-login button--wechat" href="#"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a>
+<el-row>
+   <el-col :span: 4, offset: 4><a class="button button--social-login button--wechat" href="#"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a>
       </el-col>
       </el-row>
-
-			<el-row :gutter="20">
-        <el-col :span="24" center><a class="button button--social-login button--line" href="#"><img src="images/icon_line.png" class="icon" >透過 Line 登入</a></el-col>
+<el-row>
+   <el-col :span: 4, offset: 4><a class="button button--social-login button--line" href="#"><img src="images/icon_line.png" class="icon" >透過 Line 登入</a></el-col>
 			<el-col :span="24"  center><a class="button button--social-login button--email" href="#"><i class="icon fa fa-envelope"></i>透過 Email 登入</a>
       </el-col>
       <el-row>
-<el-row :gutter="20">
-  <el-col :span="12" :offset="6"><div class="grid-content bg-purple"></div></el-col>
-</el-row>
 
-
-      <el-row :gutter="20">
-			<el-col :span="24" center class="signup">未有帳戶？<a href="#">按此註冊</a>
+<el-row>
+   <el-col :span: 4, offset: 4>
+   <div class="signup">未有帳戶？<a href="#">按此註冊</a></div>
       </el-col>
     </el-row>
 
-		</div>
+
+  </div>
   </div>
 </body>
 </html>
