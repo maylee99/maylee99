@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, shrink-to-fit=no"">
-  <meta name="mobile-web-app-capable" content="yes">
-  <title>airbarego login [mobile]</title>
+	<meta charset="UTF-8">
+	<title>airbarego login</title>
   <!-- 引入ELEMENT UI样式 -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 
@@ -27,12 +24,12 @@
     color: #6e6e6e;
   }
 
-  #app{
+  #web{
     margin: 0 auto;
     text-align: center;
     max-width: 320px;
     width: 100%;
-    padding-top: 22px;
+    padding-top: 0;
   }
 
   a,a:hover{
@@ -68,18 +65,24 @@
 
   /* btn */
 
-  #app > .btn {
+  #web > .btn {
       width: 100%;
       padding: .8rem 2rem;
       font-size: 1.25rem;
       font-weight: 500;
   }
 
-  .loginbox {
+  .btn-primary {
+      font-weight: 500;
+      color: #FFFFFF;
+      background-color: #ff7500;
+      border-color: none;
+  }
+
+ .loginbox {
     margin: 0 auto;
     text-align: center;
   }
-
   .btn--social {
     font-size: 18px;
     width: auto;
@@ -206,72 +209,67 @@
     }
 
   .el-dialog{
-  	min-width: 530px;
-  	width: 50%
+    min-width: 530px;
+    width: 50%
   }
 
 
   .el-dialog__header {
-  	background-color: #25acb3;
-  	padding: 15px;
+    background-color: #25acb3;
+    padding: 15px;
   }
   .el-dialog__title{
-  	color: #FFFFFF;
-  	font-weight: 700;
-  	font-size: 20px;
-  	line-height: 28px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
 
   }
   .el-icon-close{
-  	font-size: 28px;
-  	font-weight: 700;
+    font-size: 28px;
+    font-weight: 700;
     line-height: 20px;
 
   }
   .el-dialog__headerbtn .el-dialog__close{
-  	color: #FFFFFF;
+    color: #FFFFFF;
   }
   .el-dialog__headerbtn .el-dialog__close:hover{
-  	color: #FFFFFF;
+    color: #FFFFFF;
   }
 
   </style>
 </head>
 <body>
-  <div class="loginbox" id="app" >
-  <h1>請選擇以下方法註冊或登入</h1>
-  <el-row>
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="btn--social btn--social-login btn--google" href="#" alt="signin with google"><img src="images/google_g_logo.svg" class="icon" >透過 google 登入</a>
-  </el-col>
-  </el-row>
+  <div id="app">
+    <el-button @click="visible = true" fullscreen>Open Popup</el-button>
+    <el-dialog :visible.sync="visible"   :visible.sync="centerDialogVisible"
+  width="30%" center title="請選擇以下方法登入或註冊會員">
+		<div class="el-row el-dialog--center" id="web">
 
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="btn--social btn--social-login btn--facebook" href="#"><i class="icon fa fa-facebook" alt="signin with Facebook"></i>透過 Facebook 登入</a>
-  </el-col>
-  </el-row>
+			<p center><a class="btn--social btn--social-login btn--google" href="#" alt="signin with google"><img src="images/google_g_logo.svg" class="icon" >透過 google 登入</a></p>
 
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="btn--social btn--social-login btn--wechat" href="#" alt="signin with Wechat"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a>
-  </el-col>
-  </el-row>
+			<p><a class="btn--social btn--social-login btn--facebook" href="#"><i class="icon fa fa-facebook" alt="signin with Facebook"></i>透過 Facebook 登入</a></p>
 
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="btn--social btn--social-login btn--line" href="#" alt="signin with Line"><img src="images/icon_line.png" class="icon" >透過 Line 登入</a>
-  </el-col>
-  </el-row>
+			<p><a class="btn--social btn--social-login btn--wechat" href="#" alt="signin with Wechat"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a></p>
 
-  <el-row>
-  <el-col :span: 4, offset: 4><a class="btn--social btn--social-login btn--email last" href="#" alt="signin with Email "><i class="icon fa fa-envelope"></i>透過 Email 登入</a>
-  </el-col>
-  </el-row>
+			<p><a class="btn--social btn--social-login btn--email last" href="#" alt="signin with Email "><i class="icon fa fa-envelope"></i>透過 Email 登入</a></p>
+			<div class="footer-link">未有帳戶？<a href="#">按此註冊</a></div>
+		</div>
 
-  <el-row>
-  <el-col :span: 4, offset: 4>
-  <div class="footer-link">未有帳戶？<a href="#">按此註冊</a></div>
-  </el-col>
-  </el-row>
-
+    </el-dialog>
   </div>
 </body>
+  <!-- import Vue before Element -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+    el: '#app',
+    data: function() {
+    return { visible: false }
+    }
+    })
+  </script>
 </html>
