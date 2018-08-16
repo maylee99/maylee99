@@ -24,7 +24,7 @@
     color: #6e6e6e;
   }
 
-  #web{
+  #reg_wrapper{
     margin: 0 auto;
     text-align: center;
     max-width: 320px;
@@ -55,17 +55,24 @@
     color: #55d2d8;
   }
 
-  #app > h1{
+  #reg_wrapper > h1{
     font-size: 18px;
     font-weight: 600;
     padding: 0;
     margin-bottom: 20px;
     margin-top: 0;
   }
+  .btn.focus, .btn:focus {
+    outline: 0;
+  }
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
 
   /* btn */
 
-  #web > .btn {
+  #reg_wrapper > .btn {
       width: 100%;
       padding: .8rem 2rem;
       font-size: 1.25rem;
@@ -83,6 +90,7 @@
     margin: 0 auto;
     text-align: center;
   }
+
   .btn--social {
     font-size: 18px;
     width: auto;
@@ -190,7 +198,7 @@
     border: 1px solid #dddddd;
   }
   .btn--email .icon {
-    padding-right: 4px;
+    padding-right: 2px;
   }
 
   .btn--email:hover {
@@ -241,35 +249,36 @@
   </style>
 </head>
 <body>
-  <div id="app">
+<div id="app">
     <el-button @click="visible = true" fullscreen>Open Popup</el-button>
-    <el-dialog :visible.sync="visible"   :visible.sync="centerDialogVisible"
+  <el-dialog :visible.sync="visible"   :visible.sync="centerDialogVisible"
   width="30%" center title="請選擇以下方法登入或註冊會員">
-		<div class="el-row el-dialog--center" id="web">
+    <div id="reg_wrapper">
+    <div class="el-row el-dialog--center">
+      <p center><a class="btn--social btn--social-login btn--google" href="#" alt="signin with google"><img src="images/google_g_logo.png" class="icon" >透過 google 登入</a></p>
 
-			<p center><a class="btn--social btn--social-login btn--google" href="#" alt="signin with google"><img src="images/google_g_logo.svg" class="icon" >透過 google 登入</a></p>
+      <p><a class="btn--social btn--social-login btn--facebook" href="#"><i class="icon fa fa-facebook" alt="signin with Facebook"></i>透過 Facebook 登入</a></p>
 
-			<p><a class="btn--social btn--social-login btn--facebook" href="#"><i class="icon fa fa-facebook" alt="signin with Facebook"></i>透過 Facebook 登入</a></p>
+      <p><a class="btn--social btn--social-login btn--wechat" href="#" alt="signin with Wechat"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a></p>
 
-			<p><a class="btn--social btn--social-login btn--wechat" href="#" alt="signin with Wechat"><i class="icon fa fa-weixin"></i>透過 Wechat 登入</a></p>
-
-			<p><a class="btn--social btn--social-login btn--email last" href="#" alt="signin with Email "><i class="icon fa fa-envelope"></i>透過 Email 登入</a></p>
-			<div class="footer-link">未有帳戶？<a href="#">按此註冊</a></div>
-		</div>
-
-    </el-dialog>
+      <p><a class="btn--social btn--social-login btn--email last" href="#" alt="signin with Email "><i class="icon fa fa-envelope"></i>透過 Email 登入</a></p>
+      <div class="footer-link">未有帳戶？<a href="#">按此註冊</a>
+      </div>
+    </div>
   </div>
+  </el-dialog>
+</div>
 </body>
-  <!-- import Vue before Element -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- import JavaScript -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-  <script>
-    new Vue({
-    el: '#app',
-    data: function() {
-    return { visible: false }
-    }
-    })
-  </script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  new Vue({
+  el: '#app',
+  data: function() {
+  return { visible: false }
+  }
+  })
+</script>
 </html>
