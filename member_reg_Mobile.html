@@ -17,7 +17,7 @@
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <style type="text/css" media="screen">
+ <style type="text/css" media="screen">
   @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 
   /* Page css */
@@ -27,12 +27,12 @@
     color: #6e6e6e;
   }
 
-  #app{
+  #reg_wrapper{
     margin: 0 auto;
     text-align: center;
     max-width: 320px;
     width: 100%;
-    padding-top: 22px;
+    padding-top: 0;
   }
 
   a,a:hover{
@@ -58,22 +58,30 @@
     color: #55d2d8;
   }
 
-  #app > h1{
+  #reg_wrapper > h1{
     font-size: 18px;
     font-weight: 600;
     padding: 0;
     margin-bottom: 20px;
-    margin-top: 0;
+    margin-top: 22px;
   }
+  .btn.focus, .btn:focus {
+    outline: 0;
+  }
+
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
 
   /* btn */
 
-  #app > .btn {
+  #reg_wrapper > .btn {
       width: 100%;
       padding: .8rem 2rem;
       font-size: 1.25rem;
       font-weight: 500;
   }
+
 
   .loginbox {
     margin: 0 auto;
@@ -187,7 +195,7 @@
     border: 1px solid #dddddd;
   }
   .btn--email .icon {
-    padding-right: 4px;
+    padding-right: 2px;
   }
 
   .btn--email:hover {
@@ -238,7 +246,8 @@
   </style>
 </head>
 <body>
-  <div class="loginbox" id="app" >
+  <div id="app">
+  <div class="loginbox" id="reg_wrapper" >
   <h1>請選擇以下方法註冊或登入</h1>
   <el-row>
   <el-row>
@@ -272,6 +281,7 @@
   </el-col>
   </el-row>
 
+  </div>
   </div>
 </body>
 </html>
